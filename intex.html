@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Website</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      :root {
+        --navi-blue: #0d6efd;
+        --text-white: #ffffff;
+        --bg-black: #212529;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        padding-top: 70px; /* For fixed navbar */
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        background-color: var(--bg-black) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 5px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--text-white) !important;
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand:hover {
+        transform: scale(1.05);
+      }
+
+      .nav-link {
+        color: var(--text-white) !important;
+        font-weight: 500;
+        margin: 0 8px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--navi-blue) !important;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--navi-blue);
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: var(--bg-black);
+        color: var(--text-white);
+        padding: 60px 0 20px;
+        margin-top: 50px;
+      }
+
+      .footer-logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .footer-links h5 {
+        color: var(--navi-blue);
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .footer-links ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: var(--text-white);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--navi-blue);
+        padding-left: 5px;
+      }
+
+      .social-icons a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--text-white) !important;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        background-color: var(--navi-blue);
+        transform: translateY(-5px);
+      }
+
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+        margin-top: 40px;
+        text-align: center;
+      }
+
+      /* Animation Classes */
+      .animate-pop-in {
+        animation: popIn 0.6s cubic-bezier(0.26, 0.53, 0.74, 1.48) forwards;
+        opacity: 0;
+      }
+
+      @keyframes popIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+
+      .delay-2 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-3 {
+        animation-delay: 0.3s;
+      }
+
+      .delay-4 {
+        animation-delay: 0.4s;
+      }
+
+      .delay-5 {
+        animation-delay: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand animate-pop-in" href="#">NaviPro</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item animate-pop-in delay-1">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item animate-pop-in delay-2">
+              <a class="nav-link" href="#event">Event</a>
+            </li>
+            <li class="nav-item animate-pop-in delay-3">
+              <a class="nav-link" href="#service">Service</a>
+            </li>
+            <li class="nav-item animate-pop-in delay-4">
+              <a class="nav-link" href="#profile">Profile</a>
+            </li>
+            <li class="nav-item animate-pop-in delay-5">
+              <a class="nav-link" href="#contact">Contact & Support</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content (Placeholder) -->
+    <div class="container my-5 py-5">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="display-4 mb-4">Welcome to Our Professional Website</h1>
+          <p class="lead">
+            This is a demonstration of a professional navbar and footer with
+            animations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="animate__animated animate__fadeInUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <span class="footer-logo">NaviPro</span>
+            <p class="mb-4">
+              Professional navigation solutions for modern websites. Creating
+              seamless user experiences with elegant design.
+            </p>
+            <div class="social-icons">
+              <a
+                href="#"
+                class="animate__animated animate__fadeIn animate__delay-1s"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="animate__animated animate__fadeIn animate__delay-2s"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="#"
+                class="animate__animated animate__fadeIn animate__delay-3s"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="#"
+                class="animate__animated animate__fadeIn animate__delay-4s"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <div class="footer-links">
+              <h5>Quick Links</h5>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#blog">Blog</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <div class="footer-links">
+              <h5>Services</h5>
+              <ul>
+                <li><a href="#web-design">Web Design</a></li>
+                <li><a href="#development">Development</a></li>
+                <li><a href="#marketing">Marketing</a></li>
+                <li><a href="#seo">SEO Services</a></li>
+                <li><a href="#support">Support</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-links">
+              <h5>Contact & Support</h5>
+              <ul class="contact-info">
+                <li>
+                  <i class="fas fa-map-marker-alt me-2"></i> 123 Business Ave,
+                  Suite 456
+                </li>
+                <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                <li><i class="fas fa-envelope me-2"></i> info@navipro.com</li>
+                <li><i class="fas fa-clock me-2"></i> Mon-Fri: 9AM - 5PM</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p class="mb-0">&copy; 2023 NaviPro. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+
+            // Update URL without page jump
+            if (history.pushState) {
+              history.pushState(null, null, targetId);
+            } else {
+              location.hash = targetId;
+            }
+          }
+        });
+      });
+
+      // Add animation to elements when they come into view
+      const animateOnScroll = function () {
+        const elements = document.querySelectorAll(
+          ".animate-pop-in:not(.animated)"
+        );
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.2;
+
+          if (elementPosition < screenPosition) {
+            element.classList.add("animated");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+    </script>
+  </body>
+</html>
